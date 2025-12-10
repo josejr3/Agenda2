@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     protected $fillable = [
+        'name',
         'calorias',
         'grasa_Saturada',
         'colesterol',
