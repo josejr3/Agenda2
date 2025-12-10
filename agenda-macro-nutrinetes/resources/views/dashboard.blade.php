@@ -14,9 +14,10 @@ $client = new BedcaClient();
                 <?php
                         $client = new BedcaClient();
                         $foodGroups = $client->getFoodGroups();
-                        print_r($foodGroups);
-                        $food = $client->getFood(893);
-                        //var_dump($food);
+                        //dump($foodGroups->food);
+                        //$food = $client->getFoodsInGroup(10);
+                        $food = $client->getFood(2645);
+                        dump($food);
                     ?>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
