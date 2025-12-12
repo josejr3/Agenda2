@@ -1,5 +1,6 @@
 <?php
 require 'C:\Users\grego\Desktop\Agenda2\agenda-macro-nutrinetes\vendor\autoload.php';
+use App\Models\categories;
 
 use StaticKidz\BedcaAPI\BedcaClient;
 
@@ -17,6 +18,7 @@ $client = new BedcaClient();
                         //dump($foodGroups->food);
                         //$food = $client->getFoodsInGroup(10);
                         $food = $client->getFood(2645);
+                         $todasLasCategorias = categories::all()->first()->food_group_id;
                         dump($food);
                     ?>
     <div class="py-12">
