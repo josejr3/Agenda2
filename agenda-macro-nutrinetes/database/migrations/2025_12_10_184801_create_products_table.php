@@ -15,7 +15,15 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->decimal('calorias');
+            $table->decimal('grasa_Saturada');
+            $table->decimal('colesterol');
+            $table->decimal('grasa_Poliinsaturada');
+            $table->decimal('grasa_Monoinsaturada');
+            $table->decimal('grasa_trans');
+            $table->decimal('Fibra');
+            $table->decimal('proteinas');
             $table->timestamps();
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
         });
     }
 

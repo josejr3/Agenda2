@@ -17,4 +17,10 @@ class Product extends Model
         'Fibra',
         'proteinas',
     ];
+
+    public function products(){
+
+        return $this->hasMany(Product::class);
+
+    }
 }
