@@ -12,18 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->id();
+            $table->string('product_id')->primary();
             $table->string('name');
-            $table->decimal('calorias');
-            $table->decimal('grasa_Saturada');
-            $table->decimal('colesterol');
-            $table->decimal('grasa_Poliinsaturada');
-            $table->decimal('grasa_Monoinsaturada');
-            $table->decimal('grasa_trans');
-            $table->decimal('Fibra');
-            $table->decimal('proteinas');
+            $table->decimal('calorias')->nullable();
+            $table->decimal('grasa_Saturada')->nullable();
+            $table->decimal('colesterol')->nullable();
+            $table->decimal('grasa_Poliinsaturada')->nullable();
+            $table->decimal('grasa_Monoinsaturada')->nullable();
+            $table->decimal('grasa_trans')->nullable();
+            $table->decimal('Fibra')->nullable();
+            $table->decimal('proteinas')->nullable();
             $table->timestamps();
-            $table->foreignId('category_id')->constrained()->onDelete('cascade');
+            $table->foreignId('category_id')->constraint()->onDelete('cascade');
         });
     }
 

@@ -13,13 +13,21 @@ $client = new BedcaClient();
         </h2>
     </x-slot>
                 <?php
-                        $client = new BedcaClient();
-                        $foodGroups = $client->getFoodGroups();
-                        //dump($foodGroups->food);
-                        //$food = $client->getFoodsInGroup(10);
-                        $food = $client->getFood(2645);
-                         $todasLasCategorias = categories::all()->first()->food_group_id;
-                        dump($food);
+                        $client = new BedcaClient();       
+                      
+                        $todasLasCategorias = categories::select('food_group_id','food_name')->get();
+                        
+                        foreach ($todasLasCategorias as $categoria) {
+                             $foods = $client->getFoodsInGroup($categoria->food_group_id);
+                             $p=json_decode(json_encode($foods),true);
+                             if(!empty($p)){                                                        
+                                foreach ($p["food"] as  $fooood) {
+                                    dump($fooood["f_ori_name"]);
+                                    dump($fooood["f_id"]);
+                                }
+                             }
+                                                  
+                       }
                     ?>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
